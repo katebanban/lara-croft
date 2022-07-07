@@ -1,0 +1,186 @@
+/*---BASE--------------------------------*/
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: Montserrat, serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: calc(20 / 16 * 100%); /*20px = 125%*/
+	text-transform: capitalize;
+	color: #fff;
+	background: #1b2115;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.container {
+	max-width: calc(
+		1170px + 30px
+	); /*1170px - это ширина нашего огранич. контейнера, а 30px - это наши паддинги по бокам*/
+	margin: 0 auto;
+	padding: 0px 15px; /*чтобы при адаптиве не прилипал контент к бокам экрана*/
+}
+
+/*---ПОВТОРЯЮЩИЕСЯ ЭЛЕМЕНТЫ--------*/
+
+.red-text {
+	color: #6b0505;
+}
+
+/*---------------------------------*/
+
+.header {
+	background: linear-gradient(180deg, #000000 0%, #1b2115 100%);
+	padding: 5px 0px; /*выставляем по самому высокому эл-ту в этой коробочке*/
+}
+
+.header__body {
+	display: flex;
+	align-items: center; /*центрирует эл-ты по вертикальной оси*/
+}
+
+.header__logo {
+	width: 58px;
+	transition: all 0.3s; /*анимировать всё с задержкой 0.3 сек*/
+}
+
+.header__logo:hover {
+	transform: scale(1.1); /*увеличение масштаба блока при наведении*/
+}
+
+.header__logo img {
+	max-width: 100%; /*чтобы лого подстраивался под размеры своей род. коробочки*/
+}
+
+.header__logo-link {
+}
+
+.header__menu {
+	margin-left: auto; /*равняет меню по правому краю*/
+}
+
+.menu {
+}
+
+.menu__list {
+	display: flex;
+	flex-wrap: wrap; /*когда не будет хватать места в ряду эл-там, они будут заходить один под одного*/
+	margin: 0px 36px; /*отступы вправо и влево от списка*/
+}
+
+.menu__item {
+}
+
+.menu__item:not(:last-child) {
+	margin-right: 36px; /*отступы вправо между элементами внутри списка, кроме последнего*/
+}
+
+.menu__link {
+	text-transform: uppercase;
+	color: #ffffff;
+
+	transition: all 0.3s; /*анимировать всё с задержкой 0.3 сек*/
+}
+
+.menu__link:hover {
+	text-shadow: 1px 0px 5px rgb(255, 255, 255);
+}
+
+.header__button {
+}
+
+.btn {
+	border: 2px solid #6b0505;
+	background: #6b0505;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(29 / 24 * 100%);
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.9);
+	padding: 13px 33px; /*мы отняли по 2px от всех паддингов из-за бордера*/
+	min-width: 208px; /*минимальная ширина кнопки, чтобы она сохраняла свой р-р при уменьшении экрана*/
+
+	transition: all 0.3s; /*анимировать всё с задержкой 0.3 сек*/
+}
+
+.btn:hover {
+	border: 2px solid #6b0505;
+	color: #6b0505;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+	.header {
+		padding: 10px 0; /*делаем чуть больше отступ сверху и снизу*/
+	}
+	.header__body {
+		flex-direction: column; /*ставит лого, меню и кнопку в колонку*/
+	}
+	.header__logo {
+		margin-bottom: 25px; /*отступ вниз от лого до меню*/
+	}
+	.header__menu {
+		margin-left: unset; /*убирает сдвиг вправо для меню*/
+	}
+	.menu__list {
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 25px;
+	}
+	.menu__item:not(:last-child) {
+		margin: 0; /*убрала отступы справа от пунктов списка меню*/
+		margin-bottom: 15px;
+	}
+}
+
+/*---MAIN-------------------------------*/
+
+.main {
+}
+
+/*---FIRST-------------------------------*/
+
+.first {
+	/*сниппет bg+ -> tab*/
+	background: url("../img/first/bg_first.png") center/cover no-repeat;
+}
+
+.first__body {
+	display: flex;
+	align-items: center; /*центрирует эл-ты по вертикальной оси*/
+	justify-content: space-between; /*прижимает элементы к разным сторонам экрана*/
+}
+
+.first__content {
+	max-width: 600px;
+}
+
+.first__title {
+	background: #000;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: calc(59 / 48 * 100%);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 5px 29px; /*паддинги нужны обязательно, они управляют высотой/шириной блока и не дают тексту приклеиться к блоку*/
+}
+
+/*обращение к соседу класса .first__title (в. д.сл. к классу .first__text). Если есть сосед - то к нему прим. margin-top, если нету соседа - нету и отступа*/
+.first__title + * {
+	margin-top: 25px;
+}
+
+.first__text {
+	max-width: 500px;
+	background: rgba(0, 0, 0, 0.75);
+	padding: 26px 29px;
+}
+.first__image {
+}
